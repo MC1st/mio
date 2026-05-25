@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librería Talento</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="mostrarSeccion('inicio')">
+
+  <header>
+    <h1>Librería Talento</h1>
+    <p>Tu espacio para descubrir historias</p>
+    <button id="toggle-dark">🌙 Alternar Dark Mode</button>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+      <li><a href="#" onclick="mostrarSeccion('catalogo')">Catálogo</a></li>
+      <li><a href="#" onclick="mostrarSeccion('reseñas')">Reseñas</a></li>
+      <li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Inicio -->
+    <section id="inicio">
+      <h2 class="bienvenida">Bienvenida</h2>
+      <p class="texto-intro">Explora nuestra colección de libros seleccionados para ti.</p>
+      <p class="frase-motivadora">
+        “Cada página es una puerta abierta a nuevos mundos. Quédate, descubre y deja que las historias iluminen tu camino.”
+      </p>
+      <img src="img/libros.png" alt="Imagen de libros apilados">
+    </section>
+
+    <!-- Catálogo -->
+    <section id="catalogo" class="productos">
+      <h2>Catálogo destacado</h2>
+      <div class="tarjetas">
+        <div class="tarjeta-producto">
+          <div class="imagen-producto">📚</div>
+          <h3>Novela Histórica</h3>
+          <p>Viaja al pasado con relatos apasionantes.</p>
+        </div>
+        <div class="tarjeta-producto">
+          <div class="imagen-producto">✨</div>
+          <h3>Fantasía</h3>
+          <p>Mundos mágicos y aventuras épicas.</p>
+        </div>
+        <div class="tarjeta-producto">
+          <div class="imagen-producto">💡</div>
+          <h3>Desarrollo Personal</h3>
+          <p>Libros para crecer y reflexionar.</p>
+        </div>
+      </div>
+      <img src="img/estanteria.png" alt="Estantería llena de libros">
+    </section>
+
+    <!-- Reseñas -->
+    <section id="reseñas" class="reseñas">
+      <h2>Reseñas de lectores</h2>
+      <img src="img/reseñas.png" alt="Persona leyendo en un café">
+      <div id="lista-reseñas">
+        <div class="review">“Un catálogo variado y muy bien organizado.”</div>
+        <div class="review">“Encontré mi libro favorito aquí.”</div>
+      </div>
+
+      <h3>Agrega tu reseña</h3>
+      <form onsubmit="agregarReseña(event)">
+        <textarea id="nuevaReseña" placeholder="Escribe tu reseña aquí..." required></textarea>
+        <button type="submit">Enviar reseña</button>
+      </form>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contacto">
+      <h2>Contacto</h2>
+      <form id="form-contacto" action="https://formspree.io/f/xbdbyeve" method="POST">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="correo" placeholder="Tu correo" required>
+        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+
+      <!-- Mensaje de confirmación -->
+      <p id="mensaje-exito" style="display:none; color:green; font-weight:bold;">
+        ✅ Tu mensaje fue enviado con éxito
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Librería Talento - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll("main section").forEach(sec => sec.style.display = "none");
+      document.getElementById(id).style.display = "block";
+    }
+
+    function agregarReseña(e) {
+      e.preventDefault();
+      const texto = document.getElementById("nuevaReseña").value;
+      const div = document.createElement("div");
+      div.className = "review";
+      div.textContent = texto;
+      document.getElementById("lista-reseñas").appendChild(div);
+      document.getElementById("nuevaReseña").value = "";
+    }
+
+    // Alternar modo oscuro
+    document.getElementById("toggle-dark").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+
+    // Formspree con mensaje de éxito
+    const form = document.getElementById("form-contacto");
+    const mensajeExito = document.getElementById("mensaje-exito");
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        mensajeExito.style.display = "block";
+        form.reset();
+        setTimeout(() => {
+          mostrarSeccion("inicio");
+          mensajeExito.style.display = "none";
+        }, 3000);
+      } else {
+        alert("Hubo un problema al enviar tu mensaje. Intenta nuevamente.");
+      }
+    });
+  </script>
+
+</body>
+</html>

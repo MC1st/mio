@@ -1,0 +1,272 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #fdf6e3, #f5deb3);
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #6b4226;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+}
+
+header button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #f5deb3;
+  cursor: pointer;
+}
+
+/* Navegación */
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  background-color: #8b5e3c;
+  padding: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Secciones */
+main section {
+  display: none;
+  padding: 40px;
+  text-align: center;
+}
+
+main section img {
+  max-width: 80%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Catálogo horizontal */
+.tarjetas {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-producto {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Botón principal */
+button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #6b4226;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #8b5e3c;
+}
+
+/* Footer */
+footer {
+  background-color: #6b4226;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+/* ------------------ */
+/* Fondos decorativos */
+/* ------------------ */
+
+/* Inicio */
+#inicio {
+  background-image: url("img/decorativa.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+#inicio h2.bienvenida {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #6b4226;
+  margin-bottom: 20px;
+}
+
+#inicio .texto-intro {
+  font-size: 1.4em;
+  color: #444;
+  margin: 15px auto;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+#inicio .frase-motivadora {
+  font-size: 1.5em;
+  font-style: italic;
+  color: #6b4226;
+  margin: 25px auto;
+  max-width: 700px;
+  line-height: 1.8;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Catálogo */
+#catalogo {
+  background-image: url("img/decorativa.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+#catalogo h2,
+#catalogo .tarjetas,
+#catalogo img {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px auto;
+  max-width: 900px;
+}
+
+/* Reseñas */
+#reseñas {
+  background-image: url("img/decorativa.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+#reseñas h2,
+#reseñas img,
+#reseñas #lista-reseñas,
+#reseñas form {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px auto;
+  max-width: 600px;
+}
+
+/* Contacto */
+#contacto {
+  background-image: url("img/decorativa.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+#contacto h2,
+#contacto form,
+#contacto p {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 500px;
+}
+
+/* ------------------ */
+/* MODO OSCURO MARRÓN-DORADO */
+/* ------------------ */
+body.dark-mode {
+  background: #1c1c1c;
+  color: #f5f5dc; /* texto general claro */
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #2a1c12;
+  color: #f5f5dc;
+  border-top: 2px solid #d4af37; /* dorado elegante */
+}
+
+body.dark-mode nav ul {
+  background-color: #3a2418;
+  border-bottom: 2px solid #d4af37;
+}
+
+body.dark-mode nav a {
+  color: #f5f5dc;
+}
+
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: #f5f5dc;
+}
+
+body.dark-mode .tarjeta-producto,
+body.dark-mode .review {
+  background-color: #2c2c2c;
+  color: #f5f5dc;
+  border: 1px solid #d4af37;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+  background-color: #2c2c2c;
+  color: #f5f5dc;
+  border: 1px solid #d4af37;
+}
+
+body.dark-mode button {
+  background-color: #3a2418;
+  color: #f5f5dc;
+  border: 1px solid #d4af37;
+  font-weight: bold;
+}
+
+body.dark-mode button:hover {
+  background-color: #5a3a28;
+  color: #fff8dc;
+}
+
+/* ------------------ */
+/* Ajustes específicos */
+/* ------------------ */
+
+/* Reseñas de Lectores en negro */
+body.dark-mode #reseñas h2 {
+  color: #000000; /* negro */
+}
+
+/* Contacto en negro */
+body.dark-mode #contacto h2 {
+  color: #000000; /* negro */
+}
